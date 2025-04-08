@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: 'm.media-amazon.com',
         pathname: '/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'ia.media-imdb.com',
+        pathname: '/images/**',
+      }
     ],
   },
 }

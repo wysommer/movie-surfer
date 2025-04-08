@@ -8,7 +8,7 @@ import { searchMovies } from "@/lib/api"
 import { MovieSearchResult } from "@/types/movie"
 
 interface SearchBarProps {
-  onSearchResults: (results: MovieSearchResult[]) => void
+  onSearchResults: (results: MovieSearchResult[], searchTerm: string) => void
   onError: (message: string) => void
 }
 
@@ -22,7 +22,7 @@ export function SearchBar({ onSearchResults, onError }: SearchBarProps) {
     setIsLoading(true)
     try {
       const data = await searchMovies(query)
-      onSearchResults(data.Search)
+      onSearchResults(data.Search, query.trim())
     } catch (error) {
       onError(error instanceof Error ? error.message : "Failed to search movies")
     } finally {
