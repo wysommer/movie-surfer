@@ -29,4 +29,5 @@ export interface MovieDetails {
   imdbID: string;
   Type: string;
   Response: string;
+  Awards: string;
 } 
