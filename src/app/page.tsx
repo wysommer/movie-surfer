@@ -36,6 +36,7 @@ export default function Home() {
         const featured = results.map(result => result.Search[0])
         setFeaturedMovies(featured)
       } catch (error) {
+        console.error('Failed to fetch featured movies:', error)
         toast.error("Failed to load featured movies")
       } finally {
         setIsLoading(false)
@@ -63,8 +64,6 @@ export default function Home() {
   const handleViewDetails = (imdbId: string) => {
     router.push(`/movie/${imdbId}`)
   }
-
-  const displayedMovies = isSearching ? filteredMovies : featuredMovies
 
   return (
     <>
